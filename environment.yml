@@ -1,0 +1,17 @@
+name: atlas-mauritius
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pandas
+  - numpy
+  - geopandas
+  - shapely
+  - rasterio
+  - python-duckdb
+  - matplotlib
+  - requests
+  - pyarrow
+  - pyyaml
+  - pytest
+  - ruff

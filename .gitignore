@@ -218,3 +218,8 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Project data (never commit: GBIF licences, WDPA terms forbid redistribution)
+data/
+*.duckdb
+*.duckdb.wal
