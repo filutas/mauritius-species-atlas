@@ -18,7 +18,7 @@ This is a transparent, modest data analysis, not a scientific study.
 
 ## 2. Scope
 
-- **Species (8 to 12 candidates, final list after record counts):** endemic or threatened animals of Mauritius (birds, a bat, reptiles). The candidate list with IUCN categories is in `config/species.csv`.
+- **Species (12 candidates, 9 expected to be analysed after cleaning):** endemic or threatened animals of Mauritius (birds, a bat, reptiles). The candidate list with IUCN categories is in `config/species.csv`.
 - **Region:** Mauritius main island, bounding box in `config/config.yml`.
 - **Period:** records from 2000-01-01 to 2025-12-31.
 - **Records:** GBIF occurrence records with coordinates, country MU.
@@ -41,7 +41,7 @@ This is a transparent, modest data analysis, not a scientific study.
 
 | ID | Milestone | Status |
 |----|-----------|--------|
-| M1 | Day 1: repository, environment, plan, species list, record counts, go or no-go decision | [ ] |
+| M1 | Day 1: repository, environment, plan, species list, record counts, go or no-go decision | [x] |
 | M2 | Day 2: all records downloaded and cached, WDPA and land cover obtained | [ ] |
 | M3 | Day 3: cleaned dataset with land cover and grid cells, cleaning log | [ ] |
 | M4 | Day 4: DuckDB database and SQL results, tree cover protected share | [ ] |
@@ -52,14 +52,14 @@ This is a transparent, modest data analysis, not a scientific study.
 
 | # | Risk | Likelihood | Impact | Mitigation | Occurred? / What I did |
 |---|------|-----------|--------|-----------|------------------------|
-| R1 | Too few records for rare species | High | Medium | Count first, drop species under about 20 records, report them as data-poor | Occurred: Phelsuma guentheri has only 9 records, so it is dropped |
-| R2 | Names do not match the GBIF backbone (taxonomy changes) | Medium | Medium | Always resolve names with the species match service and read the match type | Occurred: Terpsiphone desolata did not match, so the row was changed.  Lalage typica is a SYNONYM in the GBIF backbone, speciesKey 2486753 used.|
+| R1 | Too few records for rare species | High | Medium | Count first, drop species under about 20 records, report them as data-poor | Occurred: Phelsuma guentheri has only 9 records. After the 1,000 m uncertainty rule, Pteropus niger (13 of 221 kept) and Leiolopisma telfairii (7 of 59) are also data-poor. All three are kept in `species.csv` and reported as data-poor. |
+| R2 | Names do not match the GBIF backbone (taxonomy changes) | Medium | Medium | Always resolve names with the species match service and read the match type | Occurred: Terpsiphone desolata did not match (HIGHERRANK), so the row was changed to Terpsiphone bourbonnensis. Lalage typica is a SYNONYM in the GBIF backbone, speciesKey 2486753 used. Records are published under several names (for example Columba mayeri, Coracina typica, subspecies); each downloaded file was checked to contain exactly one speciesKey. |
 | R3 | WDPA file structure differs from what the guide says | Medium | Medium | Print the columns before using them | |
-| R4 | Sampling bias: records cluster near roads, trails and well-known sites, and a few datasets dominate | High | High | Report records per dataset, word results as recorded locations, not distribution | |
-| R5 | Coordinates imprecise or generalised | High | Medium | Filter by uncertainty, keep the 2 km grid, state the limitation | |
+| R4 | Sampling bias: records cluster near roads, trails and well-known sites, and a few datasets dominate | High | High | Report records per dataset, word results as recorded locations, not distribution | Occurred: before cleaning, eBird supplies 3,932 of 6,385 records (62%), iNaturalist research-grade 873, and 1,580 records have no dataset name (several datasets). Results are worded as recorded locations. |
+| R5 | Coordinates imprecise or generalised | High | Medium | Filter by uncertainty, keep the 2 km grid, state the limitation | Occurred: stated uncertainty is rare (eBird states none). Where stated, it is often above 5,000 m (595 of 873 iNaturalist records), probably blurred coordinates of threatened taxa. Records above 1,000 m are removed, records without stated uncertainty are kept. Coordinates are not "un-blurred". |
 | R6 | Land cover is not native habitat: tree cover includes plantations and invaded forest | High | High | Call it tree cover, never native forest | |
 | R7 | Misleading conclusions or sensitive data exposed | Medium | High | Cautious wording, aggregated maps only, no exact coordinates in the repository | |
-| R8 | Time and tooling problems | Medium | Medium | Fixed scope, caching, fallback to scripts instead of notebooks | |
+| R8 | Time and tooling problems | Medium | Medium | Fixed scope, caching, fallback to scripts instead of notebooks | Occurred: `environment.yml` copied from the PDF lost its formatting and conda could not parse it, so it was rewritten. A duplicate-rule test in the brief removed its own test record, so the test data was corrected. |
 
 ## 6. Definition of done
 
@@ -77,12 +77,15 @@ This is a transparent, modest data analysis, not a scientific study.
 _Fill in as the project progresses. This section feeds the README._
 
 - **Species decision rule:** keep species with at least 20 records (`min_records_per_species`). If fewer than 6 species or fewer than about 300 records in total remain, add species or discuss an extension.
-- **Go or no-go decision and record counts per species:** Go. Counts checked on 2026-11-10 (GBIF, country MU, 2000 to 2025, before cleaning): Nesoenas mayeri 1419, Falco punctatus 876, Foudia rubra 847, Hypsipetes olivaceus 802, Psittacula eques 648, Zosterops chloronothos 460, Lalage typica 336, Phelsuma ornata 254, Pteropus niger 221, Leiolopisma telfairii 59, Phelsuma guentheri 9, Terpsiphone bourbonnensis: 454. At least 10 species pass the 20-record rule, total above 5,900 records.
-- **Species dropped as data-poor:** Phelsuma guentheri (9 records). Leiolopisma telfairii to be rechecked after cleaning.
-- **Name changes (matchType, status SYNONYM):** Terpsiphone desolata did not match (HIGHERRANK); GBIF treats desolata as a subspecies of Terpsiphone bourbonnensis, so the row was changed. Lalage typica is a SYNONYM in the GBIF backbone, speciesKey 2486753 used.
-- **GBIF retrieval date:** _to fill in_
-- **Dominant datasets (from `05_data_sources`):** _to fill in_
-- **Cleaning decisions:** records with no stated coordinate uncertainty are kept; records without a year are dropped by the year rule.
+- **Go or no-go decision and record counts per species:** Go. Counts checked on 2026-11-10 (GBIF, country MU, 2000 to 2025, before cleaning): Nesoenas mayeri 1419, Falco punctatus 876, Foudia rubra 847, Hypsipetes olivaceus 802, Psittacula eques 648, Zosterops chloronothos 460, Terpsiphone bourbonnensis 454, Lalage typica 336, Phelsuma ornata 254, Pteropus niger 221, Leiolopisma telfairii 59, Phelsuma guentheri 9. Total 6,385 records. 11 species pass the 20-record rule before cleaning.
+- **Records kept by the 1,000 m uncertainty rule (before duplicate and bounding box rules):** Nesoenas mayeri 1,284, Falco punctatus 854, Foudia rubra 774, Hypsipetes olivaceus 752, Psittacula eques 640, Terpsiphone bourbonnensis 447, Zosterops chloronothos 444, Lalage typica 327, Phelsuma ornata 232, Pteropus niger 13, Leiolopisma telfairii 7, Phelsuma guentheri 0. Nine species stay above 20 records (about 5,750 records).
+- **Species dropped as data-poor:** Phelsuma guentheri, Pteropus niger and Leiolopisma telfairii. The final check happens after cleaning in `prepare.py`.
+- **Name changes (matchType, status SYNONYM):** Terpsiphone desolata did not match (HIGHERRANK); GBIF treats desolata as a subspecies of Terpsiphone bourbonnensis, so the row was changed. Lalage typica is a SYNONYM in the GBIF backbone (accepted name: _fill in_), speciesKey 2486753 used.
+- **GBIF retrieval date:** 2026-11-10
+- **Datasets before cleaning:** eBird 3,932 records (no uncertainty stated), no dataset name 1,580 (top dataset keys b4ae1720 with 799, 8a863029 with 376, b1047888 with 146, names to look up), iNaturalist research-grade observations 873.
+- **Dominant datasets after cleaning (from `05_data_sources`):** _to fill in_
+- **Occurrence status and basis of record (before cleaning):** all 6,385 records have status DETECTED, so the cleaning rule accepts PRESENT and DETECTED (the rule in the brief accepted only PRESENT and would have removed everything). 6,265 human observations and 120 machine observations; machine observations are kept. No fossil or living specimens and no record without a year.
+- **Cleaning decisions:** absent and not-detected records, fossil and living specimens, years outside 2000 to 2025, points outside the island box, coordinate uncertainty above 1,000 m and exact duplicates are removed. Records with no stated coordinate uncertainty are kept; records without a year would be dropped by the year rule.
 - **Cleaning log (records removed per rule):** _to fill in_
 - **Final number of records and species:** _to fill in_
 - **Land cover counts of final records:** _to fill in_
