@@ -1,0 +1,11 @@
+country: MU 
+year_min: 2000 
+year_max: 2025 
+max_uncertainty_m: 1000 
+bbox: 
+west: 57.2 
+east: 57.9 
+south: -20.6 
+north: -19.9 
+grid_deg: 0.02 
+min_records_per_species: 20
