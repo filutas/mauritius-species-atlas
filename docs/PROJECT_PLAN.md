@@ -52,8 +52,8 @@ This is a transparent, modest data analysis, not a scientific study.
 
 | # | Risk | Likelihood | Impact | Mitigation | Occurred? / What I did |
 |---|------|-----------|--------|-----------|------------------------|
-| R1 | Too few records for rare species | High | Medium | Count first, drop species under about 20 records, report them as data-poor | |
-| R2 | Names do not match the GBIF backbone (taxonomy changes) | Medium | Medium | Always resolve names with the species match service and read the match type | |
+| R1 | Too few records for rare species | High | Medium | Count first, drop species under about 20 records, report them as data-poor | Occurred: Phelsuma guentheri has only 9 records, so it is dropped |
+| R2 | Names do not match the GBIF backbone (taxonomy changes) | Medium | Medium | Always resolve names with the species match service and read the match type | Occurred: Terpsiphone desolata did not match, so the row was changed.  Lalage typica is a SYNONYM in the GBIF backbone, speciesKey 2486753 used.|
 | R3 | WDPA file structure differs from what the guide says | Medium | Medium | Print the columns before using them | |
 | R4 | Sampling bias: records cluster near roads, trails and well-known sites, and a few datasets dominate | High | High | Report records per dataset, word results as recorded locations, not distribution | |
 | R5 | Coordinates imprecise or generalised | High | Medium | Filter by uncertainty, keep the 2 km grid, state the limitation | |
@@ -77,9 +77,9 @@ This is a transparent, modest data analysis, not a scientific study.
 _Fill in as the project progresses. This section feeds the README._
 
 - **Species decision rule:** keep species with at least 20 records (`min_records_per_species`). If fewer than 6 species or fewer than about 300 records in total remain, add species or discuss an extension.
-- **Go or no-go decision and record counts per species:** _to fill in_
-- **Species dropped as data-poor:** _to fill in_
-- **Name changes (matchType, status SYNONYM):** _to fill in_
+- **Go or no-go decision and record counts per species:** Go. Counts checked on 2026-11-10 (GBIF, country MU, 2000 to 2025, before cleaning): Nesoenas mayeri 1419, Falco punctatus 876, Foudia rubra 847, Hypsipetes olivaceus 802, Psittacula eques 648, Zosterops chloronothos 460, Lalage typica 336, Phelsuma ornata 254, Pteropus niger 221, Leiolopisma telfairii 59, Phelsuma guentheri 9, Terpsiphone bourbonnensis: 454. At least 10 species pass the 20-record rule, total above 5,900 records.
+- **Species dropped as data-poor:** Phelsuma guentheri (9 records). Leiolopisma telfairii to be rechecked after cleaning.
+- **Name changes (matchType, status SYNONYM):** Terpsiphone desolata did not match (HIGHERRANK); GBIF treats desolata as a subspecies of Terpsiphone bourbonnensis, so the row was changed. Lalage typica is a SYNONYM in the GBIF backbone, speciesKey 2486753 used.
 - **GBIF retrieval date:** _to fill in_
 - **Dominant datasets (from `05_data_sources`):** _to fill in_
 - **Cleaning decisions:** records with no stated coordinate uncertainty are kept; records without a year are dropped by the year rule.
