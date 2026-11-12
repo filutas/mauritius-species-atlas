@@ -1,0 +1,13 @@
+species_key,scientific_name,common_name,taxon_group,iucn_category,n_records_gbif,n_records_clean,analysed
+2481005,Falco punctatus,Mauritius kestrel,bird,,876,379,True
+5788471,Nesoenas mayeri,Pink pigeon,bird,,1419,930,True
+5788427,Psittacula eques,Echo parakeet,bird,,648,591,True
+2494078,Foudia rubra,Mauritius fody,bird,,847,698,True
+2489380,Zosterops chloronothos,Mauritius olive white-eye,bird,,460,396,True
+2486753,Lalage typica,Mauritius cuckooshrike,bird,,336,291,True
+5788702,Hypsipetes olivaceus,Mauritius bulbul,bird,,802,712,True
+2486681,Terpsiphone bourbonnensis,Mascarene paradise flycatcher,bird,,454,422,True
+5218652,Pteropus niger,Mauritian flying fox,mammal,,221,13,False
+2447444,Phelsuma guentheri,Guenther's day gecko,reptile,,9,0,False
+2447492,Phelsuma ornata,Ornate day gecko,reptile,,254,225,True
+2461883,Leiolopisma telfairii,Telfair's skink,reptile,,59,6,False

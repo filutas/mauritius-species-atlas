@@ -1,0 +1,9 @@
+rule,removed,remaining
+start,0,6385
+occurrence status is present or detected,0,6385
+no fossil or living (captive) specimens,0,6385
+year within study period,0,6385
+inside island bounding box,466,5919
+coordinate uncertainty within limit,599,5320
+"exact duplicates (species, place, date, dataset)",657,4663
+species with fewer than 20 records,19,4644
