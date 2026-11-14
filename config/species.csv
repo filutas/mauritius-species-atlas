@@ -1,13 +1,13 @@
-scientific_name,common_name,group,iucn_category
-Falco punctatus,Mauritius kestrel,bird,
-Nesoenas mayeri,Pink pigeon,bird,
-Psittacula eques,Echo parakeet,bird,
-Foudia rubra,Mauritius fody,bird,
-Zosterops chloronothos,Mauritius olive white-eye,bird,
-Lalage typica,Mauritius cuckooshrike,bird,
-Hypsipetes olivaceus,Mauritius bulbul,bird,
-Terpsiphone bourbonnensis,Mascarene paradise flycatcher,bird,
-Pteropus niger,Mauritian flying fox,mammal,
-Phelsuma guentheri,Guenther's day gecko,reptile,
-Phelsuma ornata,Ornate day gecko,reptile,
-Leiolopisma telfairii,Telfair's skink,reptile,
+scientific_name,common_name,group,iucn_category,iucn_name,iucn_common_name
+Falco punctatus,Mauritius kestrel,bird,CR,,
+Nesoenas mayeri,Pink pigeon,bird,VU,,
+Psittacula eques,Echo parakeet,bird,VU,Alexandrinus eques,
+Foudia rubra,Mauritius fody,bird,EN,,
+Zosterops chloronothos,Mauritius olive white-eye,bird,CR,,
+Lalage typica,Mauritius cuckooshrike,bird,EN,,
+Hypsipetes olivaceus,Mauritius bulbul,bird,VU,,
+Terpsiphone bourbonnensis,Mascarene paradise flycatcher,bird,LC,,
+Pteropus niger,Mauritian flying fox,mammal,EN,,Greater Mascarene Flying Fox
+Phelsuma guentheri,Guenther's day gecko,reptile,VU,,Round Island Day Gecko
+Phelsuma ornata,Ornate day gecko,reptile,LC,,
+Leiolopisma telfairii,Telfair's skink,reptile,VU,,

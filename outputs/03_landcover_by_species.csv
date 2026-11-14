@@ -1,0 +1,53 @@
+common_name,landcover,records,pct_of_species_records
+Echo parakeet,Tree cover,552,93.7
+Echo parakeet,Bare or sparse,13,2.2
+Echo parakeet,Built-up,11,1.9
+Echo parakeet,Water,9,1.5
+Echo parakeet,Grassland,3,0.5
+Echo parakeet,Cropland,1,0.2
+Mascarene paradise flycatcher,Tree cover,368,88.0
+Mascarene paradise flycatcher,Bare or sparse,28,6.7
+Mascarene paradise flycatcher,Built-up,12,2.9
+Mascarene paradise flycatcher,Grassland,6,1.4
+Mascarene paradise flycatcher,Water,4,1.0
+Mauritius bulbul,Tree cover,624,88.0
+Mauritius bulbul,Built-up,40,5.6
+Mauritius bulbul,Bare or sparse,19,2.7
+Mauritius bulbul,Water,16,2.3
+Mauritius bulbul,Grassland,10,1.4
+Mauritius cuckooshrike,Tree cover,279,96.5
+Mauritius cuckooshrike,Water,4,1.4
+Mauritius cuckooshrike,Built-up,4,1.4
+Mauritius cuckooshrike,Bare or sparse,1,0.3
+Mauritius cuckooshrike,Grassland,1,0.3
+Mauritius fody,Tree cover,572,81.9
+Mauritius fody,Built-up,52,7.4
+Mauritius fody,Water,30,4.3
+Mauritius fody,Grassland,25,3.6
+Mauritius fody,Bare or sparse,17,2.4
+Mauritius fody,Mangroves,2,0.3
+Mauritius kestrel,Tree cover,329,87.7
+Mauritius kestrel,Grassland,16,4.3
+Mauritius kestrel,Bare or sparse,13,3.5
+Mauritius kestrel,Built-up,11,2.9
+Mauritius kestrel,Cropland,5,1.3
+Mauritius kestrel,Water,1,0.3
+Mauritius olive white-eye,Tree cover,369,93.2
+Mauritius olive white-eye,Water,9,2.3
+Mauritius olive white-eye,Built-up,8,2.0
+Mauritius olive white-eye,Bare or sparse,7,1.8
+Mauritius olive white-eye,Grassland,2,0.5
+Mauritius olive white-eye,Mangroves,1,0.3
+Ornate day gecko,Tree cover,163,72.4
+Ornate day gecko,Built-up,29,12.9
+Ornate day gecko,Grassland,21,9.3
+Ornate day gecko,Water,8,3.6
+Ornate day gecko,Bare or sparse,2,0.9
+Ornate day gecko,Mangroves,2,0.9
+Pink pigeon,Tree cover,865,93.3
+Pink pigeon,Built-up,21,2.3
+Pink pigeon,Bare or sparse,13,1.4
+Pink pigeon,Water,11,1.2
+Pink pigeon,Grassland,9,1.0
+Pink pigeon,Cropland,6,0.6
+Pink pigeon,Mangroves,2,0.2

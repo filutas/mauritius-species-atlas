@@ -10,6 +10,8 @@ URL = (
     "ESA_WorldCover_10m_2021_v200_S21E057_Map.tif"
 )
 OUT = Path("data/raw/worldcover_mauritius.tif")
+NO_DATA = 0
+WATER = 80
 
 CLASSES = {
     10: "Tree cover",
@@ -55,6 +57,30 @@ def clip_worldcover(bbox):
 def sample_classes(path, lons, lats):
     with rasterio.open(path) as src:
         return np.array([v[0] for v in src.sample(zip(lons, lats))])
+
+
+def far_from_land(path, lons, lats, radius_m):
+    """For each point, True if there is no land pixel within radius_m metres.
+
+    Land is any pixel that is neither water (80) nor no data (0).
+    """
+    far = []
+    with rasterio.open(path) as src:
+        height_m = abs(src.transform.e) * 110_570
+        for lon, lat in zip(lons, lats):
+            width_m = abs(src.transform.a) * 111_320 * np.cos(np.radians(lat))
+            rows_r = int(np.ceil(radius_m / height_m))
+            cols_r = int(np.ceil(radius_m / width_m))
+            row, col = src.index(lon, lat)
+            r0, r1 = max(row - rows_r, 0), min(row + rows_r + 1, src.height)
+            c0, c1 = max(col - cols_r, 0), min(col + cols_r + 1, src.width)
+            block = src.read(1, window=Window(c0, r0, c1 - c0, r1 - r0))
+            dy = (np.arange(r0, r1) - row)[:, None] * height_m
+            dx = (np.arange(c0, c1) - col)[None, :] * width_m
+            inside = dx**2 + dy**2 <= radius_m**2
+            land = (block != WATER) & (block != NO_DATA)
+            far.append(not np.any(land & inside))
+    return np.array(far, dtype=bool)
 
 
 if __name__ == "__main__":

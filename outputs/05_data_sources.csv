@@ -1,0 +1,9 @@
+dataset,basis,records,species,first_year,last_year
+eBird,HUMAN_OBSERVATION,3799,8,2001,2025
+Observation.org Nature data from around the World,HUMAN_OBSERVATION,366,9,2004,2025
+iNaturalist research-grade observations,HUMAN_OBSERVATION,255,3,2003,2025
+Birda - Global Observation Dataset,HUMAN_OBSERVATION,101,8,2022,2025
+Xeno-canto - Bird sounds from around the world,HUMAN_OBSERVATION,62,8,2007,2025
+NABU|naturgucker,HUMAN_OBSERVATION,23,8,2010,2025
+SAFRING: Historical Bird Ringing Records (2005-2009),HUMAN_OBSERVATION,13,5,2007,2009
+Macaulay Library Audio and Video Collection,MACHINE_OBSERVATION,7,3,2009,2010

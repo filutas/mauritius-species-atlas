@@ -13,6 +13,9 @@ KEEP_SITE_TYPES = ["PA"]
 # Coastal polygons that exist to protect fish and marine habitat. They say
 # nothing about land habitat, so they are left out of the land analysis.
 EXCLUDE_DESIGNATIONS = ["Fishing Reserve", "Marine Park"]
+# Small islet reserves are sometimes labelled Marine in WDPA although they are
+# land habitat. These designations are kept whatever the realm label says.
+KEEP_ANY_REALM = ["Nature Reserve"]
 PATTERN = "data/raw/wdpa/**/*polygons.shp"
 
 
@@ -55,7 +58,12 @@ def load_protected(bbox):
         _check(gdf, "site type")
     gdf = gdf[gdf["STATUS"].isin(OK_STATUS)]
     _check(gdf, "status")
-    gdf = gdf[_is_land(gdf)]
+    rescued = ~_is_land(gdf) & gdf["DESIG_ENG"].isin(KEEP_ANY_REALM)
+    if rescued.any():
+        print("\nkept despite a Marine realm label:")
+        shown = ["SITE_ID", "NAME_ENG", "DESIG_ENG", "REALM", "GIS_AREA"]
+        print(gdf.loc[rescued, shown].to_string(index=False))
+    gdf = gdf[_is_land(gdf) | rescued]
     _check(gdf, "realm (terrestrial and coastal only)")
     n_land_realm = len(gdf)
     gdf = gdf[~gdf["DESIG_ENG"].isin(EXCLUDE_DESIGNATIONS)]
