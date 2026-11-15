@@ -1,10 +1,11 @@
 # mauritius-species-atlas
+![CI](https://github.com/filutas/mauritius-species-atlas/actions/workflows/ci.yml/badge.svg)
 
 Open-data atlas of endemic animals of Mauritius: records, habitat and protected areas. Python, SQL (DuckDB) and GIS, with tests and CI.
 
 ![Share of records inside protected areas, by species](outputs/figures/fig2_protected_share.png)
 
-**Status:** work in progress (release v1.0 planned). The data pipeline, database, SQL queries, tree cover calculation and figures are done. The one-page summary, a clean-start test and the release are still to come. See [`docs/PROJECT_PLAN.md`](docs/PROJECT_PLAN.md) for the plan, risks and current state.
+**Status:** v1.0. See [`docs/PROJECT_PLAN.md`](docs/PROJECT_PLAN.md) for the plan, risks and what actually happened.
 
 This is a transparent, modest data analysis, not a scientific study.
 

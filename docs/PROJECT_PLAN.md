@@ -144,6 +144,11 @@ _Fill in as the project progresses. This section feeds the README._
 - **Concentration in one place:** a 2 km cell has 735 records (93 distinct points, 589 records at a single point, 632 from eBird, 716 on tree cover) and only 4 of them inside a protected area; none of its records lies within 250 m of the Île aux Aigrettes polygon (686 are more than 500 m away), so they are not on that islet. Without that cell, the share of records inside protected areas is 55.2% (2,148 of 3,891) instead of 46.5%; pink pigeon 63.5% instead of 48.1%, fody 40.9% instead of 26.4%, olive white-eye 35.3% instead of 18.2%.
 - **Hotspots (`04`):** 92 cells with at least 3 records. The richest cells have 9 species each (one with 1,037 records, one with 442).
 
+### Fresh-start test
+- **Date and setup:** 2026-11-15. The repository was cloned into a new folder, a new conda environment was created from `environment.yml`, and only `data/raw/wdpa` was copied. GBIF records and land cover were downloaded again.
+- **Result:** the full run order completed. All outputs were recreated.
+- **Difference from the reported numbers:** GBIF had grown since the download of 2026-11-10: 6,390 records instead of 6,385, and 4,627 cleaned records instead of 4,626 (one more ornate day gecko record). Species (9), shares of records inside protected areas (46.5%), tree cover protection (7.7%) and the number of hotspot cells (92) are unchanged. The reported numbers stay those of the 2026-11-10 download.
+
 ## 8. Results notes
 
 _Word everything as recorded locations, not distribution, and say tree cover, never native forest._
