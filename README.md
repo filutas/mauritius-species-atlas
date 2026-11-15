@@ -79,6 +79,14 @@ python -m pytest -q
 
 GBIF is updated continuously, so a run on a later date downloads slightly different records, and the counts reported here (retrieved 2026-11-10) can differ a little.
 
+### Manual step: WDPA download
+
+The protected area polygons come from Protected Planet and are not in this repository, because the terms do not allow redistribution.
+
+1. Open https://www.protectedplanet.net/country/MUS, press Download and choose the shapefile format. Check the terms on the site first. This project used the Nov 2026 release (merged WDPA and WD-OECM).
+2. Unzip it into `data/raw/wdpa/`. If the zip contains further zip files, unzip those too. `python -m src.protected` looks for any `*polygons.shp` file below that folder.
+3. An internet connection is needed on the first runs: `python -m src.prepare` downloads a window of the ESA WorldCover tile, and `python -m src.build_db` installs the DuckDB spatial extension.
+
 ## Data and licences
 
 | Source | Use | Licence and citation |

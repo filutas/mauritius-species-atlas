@@ -1,6 +1,6 @@
 # Project Plan: Endemic Species and Habitat Atlas for Mauritius
 
-Owner: István Attila Filutás | Started: 2026-11-10 | Release v1.0: _to fill in_ | Planned effort: about 6 working days of focused work
+Owner: István Attila Filutás | Started: 2026-11-10 | Release v1.0: 2026-11-15 | Planned effort: about 6 working days of focused work
 
 ## 1. Goal
 
@@ -46,7 +46,7 @@ This is a transparent, modest data analysis, not a scientific study.
 | M3 | Day 3: cleaned dataset with land cover and grid cells, cleaning log | [x] |
 | M4 | Day 4: DuckDB database and SQL results, tree cover protected share | [x] |
 | M5 | Day 5: three figures and tests | [x] |
-| M6 | Day 6: README, one-pager, CI green, release v1.0 | [ ] |
+| M6 | Day 6: README, one-pager, CI green, release v1.0 | [x] |
 
 ## 5. Risks
 
@@ -65,14 +65,14 @@ This is a transparent, modest data analysis, not a scientific study.
 
 ## 6. Definition of done
 
-- [ ] One documented command sequence recreates all outputs from raw downloads (the WDPA download is the only manual data step).
+- [x] One documented command sequence recreates all outputs from raw downloads (the WDPA download is the only manual data step).
 - [x] At least 6 species with enough records are analysed, or the plan explains why not. (9 species)
 - [x] Cleaning rules and a cleaning log are included.
 - [x] Five SQL files run against the DuckDB database and their results are saved.
 - [x] Three figures, a README with findings, limitations and licences, and a one-page summary exist.
-- [ ] Tests pass and CI is green. Tagged release v1.0.
-- [ ] No exact species coordinates and no raw WDPA files in the repository.
-- [ ] PROJECT_PLAN.md lists risks that actually occurred and what was done about them.
+- [x] Tests pass and CI is green. Tagged release v1.0.
+- [x] No exact species coordinates and no raw WDPA files in the repository.
+- [x] PROJECT_PLAN.md lists risks that actually occurred and what was done about them.
 
 ## 7. Data facts
 
